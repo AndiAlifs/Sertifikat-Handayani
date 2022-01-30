@@ -1,0 +1,33 @@
+<?php
+
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\KursusController;
+use App\Http\Controllers\KompetensiController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', [SertifikatController::class,'index'])->name('sertif.index');
+
+Route::get('/sertifikat/buat', [SertifikatController::class,'create'])->name('sertif.buat');
+Route::post('/sertifikat/simpan', [SertifikatController::class,'store'])->name('nilai.simpan');
+Route::get('/sertifikat/detail/{id}', [SertifikatController::class,'show'])->name('sertif.detail');
+
+Route::post('/nilai/buat', [NilaiController::class,'create'])->name('nilai.buat');
+
+Route::get('/kursus/buat', [KursusController::class,'create'])->name('kursus.buat');
+Route::post('/kursus/simpan', [KursusController::class,'store'])->name('kursus.simpan');
+
+Route::get('/kompetensi/buat', [KompetensiController::class,'create'])->name('kompetensi.buat');
+Route::post('/kompetensi/simpan', [KompetensiController::class,'store'])->name('kompetensi.simpan');
