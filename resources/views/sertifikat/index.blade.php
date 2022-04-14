@@ -39,8 +39,8 @@
                                         <a href="{{ 'https://chart.googleapis.com/chart?chs=320x320&cht=qr&chl='.url('/sertifikat/detail').'/'.$sertif->id }}" download="file-QR.png">Download</a>
                                     </td>
                                     <td>
-                                        <a href="{{ url('/sertifikat/detail').'/'.$sertif->id }}" class="btn btn-primary btn-block"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail </a>
-                                        <a href="" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
+                                        <a href="{{ url('/sertifikat/detail').'/'.$sertif->id }}" class="btn btn-primary bt-block"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail </a>
+                                        <a href="{{ url('/sertifikat/hapus').'/'.$sertif->id }}" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
                                         
                                     </td>
                                 </tr>

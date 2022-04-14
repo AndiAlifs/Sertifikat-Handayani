@@ -72,6 +72,12 @@ class SertifikatController extends Controller
         return view('sertifikat/detail', compact('sertif','kompetensi'));
     }
 
+    public function delete($id)
+    {
+        $sertif = Sertifikat::find($id)->delete();
+        return redirect()->route('sertif.index');   
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

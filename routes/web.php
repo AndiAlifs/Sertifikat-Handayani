@@ -23,6 +23,7 @@ Route::get('/', [SertifikatController::class,'index'])->name('sertif.index');
 Route::get('/sertifikat/buat', [SertifikatController::class,'create'])->name('sertif.buat');
 Route::post('/sertifikat/simpan', [SertifikatController::class,'store'])->name('nilai.simpan');
 Route::get('/sertifikat/detail/{id}', [SertifikatController::class,'show'])->name('sertif.detail');
+Route::get('/sertifikat/hapus/{id}', [SertifikatController::class,'delete'])->name('sertif.hapus');
 
 Route::post('/nilai/buat', [NilaiController::class,'create'])->name('nilai.buat');
 

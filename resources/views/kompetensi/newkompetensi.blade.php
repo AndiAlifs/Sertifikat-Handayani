@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="text-center mt-2">
-                    <h3>Tambah Program Kursus</h3>
+                    <h3>Tambah Kompetensi Kursus</h3>
                 </div>
             </div>
             <div class="card-body">
