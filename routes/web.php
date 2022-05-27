@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin;
-use App\Http\Controllers\SertifikatController;
-use App\Http\Controllers\NilaiController;
-use App\Http\Controllers\KursusController;
-use App\Http\Controllers\KompetensiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SertifikatController::class,'index'])->name('sertif.index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/sertifikat/buat', [SertifikatController::class,'create'])->name('sertif.buat');
-Route::post('/sertifikat/simpan', [SertifikatController::class,'store'])->name('nilai.simpan');
-Route::get('/sertifikat/detail/{id}', [SertifikatController::class,'show'])->name('sertif.detail');
-Route::get('/sertifikat/hapus/{id}', [SertifikatController::class,'delete'])->name('sertif.hapus');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::post('/nilai/buat', [NilaiController::class,'create'])->name('nilai.buat');
-
-Route::get('/kursus/buat', [KursusController::class,'create'])->name('kursus.buat');
-Route::post('/kursus/simpan', [KursusController::class,'store'])->name('kursus.simpan');
-
-Route::get('/kompetensi/buat', [KompetensiController::class,'create'])->name('kompetensi.buat');
-Route::post('/kompetensi/simpan', [KompetensiController::class,'store'])->name('kompetensi.simpan');
+require __DIR__.'/auth.php';
