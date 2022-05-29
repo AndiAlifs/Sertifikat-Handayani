@@ -1,14 +1,22 @@
-@extends('layouts.skeleton')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Detail Sertifikat &mdash; {{ config('app.name') }}</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  @stack('stylesheet')
+</head>
 
-@section('app')
+<body>
+<div id="app">
   <div class="main-wrapper">
     <div class="navbar-bg"></div>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="main-content pl-5 pr-5">
         <section class="section">
-            <!-- <div class="section-header">
-            </div> -->
             
             <div class="section-body">
                 <div class="card">
@@ -69,10 +77,9 @@
       @include('partials.footer')
     </footer>
   </div>
-@endsection
-
-@push('javascript')
-  <script>
-    $("body").addClass("sidebar-gone");
-  </script>
-@endpush
+</div>
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
+</body>
+</html>

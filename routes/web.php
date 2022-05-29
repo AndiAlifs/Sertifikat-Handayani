@@ -19,20 +19,22 @@ use Illuminate\Support\Facades\View;
 |
 */
 
-Route::get('/', [SertifikatController::class, 'index'])->name('sertif.index');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/', [SertifikatController::class, 'index'])->name('sertif.index');
 
-Route::get('/sertifikat/buat', [SertifikatController::class, 'create'])->name('sertif.buat');
-Route::post('/sertifikat/simpan', [SertifikatController::class, 'store'])->name('nilai.simpan');
-Route::get('/sertifikat/detail/{id}', [SertifikatController::class, 'show'])->name('sertif.detail');
-Route::get('/sertifikat/hapus/{id}', [SertifikatController::class, 'delete'])->name('sertif.hapus');
-
-Route::post('/nilai/buat', [NilaiController::class, 'create'])->name('nilai.buat');
-
-Route::get('/kursus/buat', [KursusController::class, 'create'])->name('kursus.buat');
-Route::post('/kursus/simpan', [KursusController::class, 'store'])->name('kursus.simpan');
-
-Route::get('/kompetensi/buat', [KompetensiController::class, 'create'])->name('kompetensi.buat');
-Route::post('/kompetensi/simpan', [KompetensiController::class, 'store'])->name('kompetensi.simpan');
+    Route::get('/sertifikat/buat', [SertifikatController::class, 'create'])->name('sertif.buat');
+    Route::post('/sertifikat/simpan', [SertifikatController::class, 'store'])->name('nilai.simpan');
+    Route::get('/sertifikat/detail/{id}', [SertifikatController::class, 'show'])->name('sertif.detail');
+    Route::get('/sertifikat/hapus/{id}', [SertifikatController::class, 'delete'])->name('sertif.hapus');
+    
+    Route::post('/nilai/buat', [NilaiController::class, 'create'])->name('nilai.buat');
+    
+    Route::get('/kursus/buat', [KursusController::class, 'create'])->name('kursus.buat');
+    Route::post('/kursus/simpan', [KursusController::class, 'store'])->name('kursus.simpan');
+    
+    Route::get('/kompetensi/buat', [KompetensiController::class, 'create'])->name('kompetensi.buat');
+    Route::post('/kompetensi/simpan', [KompetensiController::class, 'store'])->name('kompetensi.simpan');    
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
