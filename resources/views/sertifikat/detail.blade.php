@@ -46,14 +46,14 @@
                             <div class="col-sm-3 font-weight-bold">Tanggal Lahir</div>
                             <div class="col-sm-9">{{ $sertif->tanggal_lahir }}</div>
                         </div>
-                        <div class="row mt-2">
+                        <div class="row mt-5">
                             <div class="col-sm-12 table">
                                 <table class="table table-striped table-md">
                                   <thead>
                                   <tr>
-                                    <th>#</th>
-                                    <th>Nama Kompetensi</th>
-                                    <th>Nilai</th>
+                                    <th style="width:5%">#</th>
+                                    <th style="width:75%">Nama Kompetensi</th>
+                                    <th style="width:20%">Nilai</th>
                                   </tr>
                                   </thead>
                                   <tbody>
