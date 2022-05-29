@@ -41,7 +41,10 @@ class KursusController extends Controller
         $newKursus->nama = $_POST["nama"];
         $newKursus->save();
 
-        return redirect()->route('sertif.index');
+        Session::flash('message','Berhasil menambah '.ucwords($newKursus->nama))."!";
+        Session::flash('kind','alert-success');
+
+        return redirect()->route('kursus.buat');
     }
 
     /**
@@ -77,7 +80,8 @@ class KursusController extends Controller
     {   
         // dd($request);
         $kursus = Kursus::find($request->id);
-        $kursus->name = $request->nama;
+        $kursus->nama = $request->nama;
+        $kursus->save();
         
         Session::flash('message','Berhasil Mengubah '.ucwords($request->nama))."!";
         Session::flash('kind','alert-success');
@@ -90,8 +94,12 @@ class KursusController extends Controller
      * @param  \App\Models\Kursus  $kursus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kursus $kursus)
+    public function destroy($id)
     {
-        //
+        $kursus = Kursus::find($id);
+        Session::flash('message','Berhasil Menghapus '.ucwords($kursus->nama))."!";
+        Session::flash('kind','alert-danger');
+        $kursus->delete();
+        return redirect()->route('kursus.buat');
     }
 }

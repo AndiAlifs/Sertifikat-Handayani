@@ -134,7 +134,7 @@
                             >
                                 Edit
                             </button>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="{{route('kursus.hapus',["id" => $kursus->id]) }}" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     @endforeach
