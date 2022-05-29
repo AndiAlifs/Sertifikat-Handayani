@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/kursus/simpan', [KursusController::class, 'store'])->name('kursus.simpan');
     
     Route::get('/kompetensi/buat', [KompetensiController::class, 'create'])->name('kompetensi.buat');
+    Route::get('/kompetensi/list/{id}', [KompetensiController::class, 'index'])->name('kompetensi.detail');
     Route::post('/kompetensi/simpan', [KompetensiController::class, 'store'])->name('kompetensi.simpan');    
 });
 
