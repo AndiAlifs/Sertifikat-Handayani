@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/kursus/buat', [KursusController::class, 'create'])->name('kursus.buat');
     Route::post('/kursus/simpan', [KursusController::class, 'store'])->name('kursus.simpan');
+    Route::post('/kursus/update', [KursusController::class, 'update'])->name('kursus.update');
+
     
     Route::get('/kompetensi/buat', [KompetensiController::class, 'create'])->name('kompetensi.buat');
     Route::get('/kompetensi/list/{id}', [KompetensiController::class, 'index'])->name('kompetensi.detail');

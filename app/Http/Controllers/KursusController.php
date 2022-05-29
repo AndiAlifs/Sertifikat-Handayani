@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kursus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class KursusController extends Controller
 {
@@ -25,7 +26,6 @@ class KursusController extends Controller
     public function create()
     {   
         $kursuses = Kursus::all();
-
         return view('kursus.newkursus',compact('kursuses'));
     }
 
@@ -73,9 +73,15 @@ class KursusController extends Controller
      * @param  \App\Models\Kursus  $kursus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kursus $kursus)
-    {
-        //
+    public function update(Request $request)
+    {   
+        // dd($request);
+        $kursus = Kursus::find($request->id);
+        $kursus->name = $request->nama;
+        
+        Session::flash('message','Berhasil Mengubah '.ucwords($request->nama))."!";
+        Session::flash('kind','alert-success');
+        return redirect()->route('kursus.buat');
     }
 
     /**
