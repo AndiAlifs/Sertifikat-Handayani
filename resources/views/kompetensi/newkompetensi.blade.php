@@ -65,7 +65,7 @@
             <table class="table" id="tableKompetensi">
                 <thead>
                     <tr>
-                        <th>Kompetensi</th>
+                        <th style="width:80%">Kompetensi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
