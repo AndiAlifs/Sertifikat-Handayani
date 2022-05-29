@@ -29,6 +29,30 @@
                 </form>
             </div>
         </div>
+
+        <div class="card mt-2">
+            <table class="table" id="tableKursus">
+                <thead>
+                    <tr>
+                        <th style="width:80%">Nama Kursus</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($kursuses as $kursus)
+                        <tr>
+                            <td>
+                                {{ $kursus->nama }}
+                            </td>
+                            <td>
+                                <a href="#" class='btn btn-warning'>Edit</a>
+                                <a href="#" class='btn btn-danger'>Hapus</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 @endsection

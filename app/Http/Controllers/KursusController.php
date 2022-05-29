@@ -23,8 +23,10 @@ class KursusController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('kursus.newkursus');
+    {   
+        $kursuses = Kursus::all();
+
+        return view('kursus.newkursus',compact('kursuses'));
     }
 
     /**
