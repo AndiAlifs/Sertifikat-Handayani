@@ -100,6 +100,6 @@ class KursusController extends Controller
         Session::flash('message','Berhasil Menghapus '.ucwords($kursus->nama))."!";
         Session::flash('kind','alert-danger');
         $kursus->delete();
-        return redirect()->route('kursus.buat');
+        return redirect()->route('kursus.buat'); 
     }
 }

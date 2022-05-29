@@ -26,7 +26,7 @@
                                 onchange="refreshRow()"
                             >
                                 @foreach($program as $pro)
-                                <option value="{{ $pro->id }}">
+                                <option value="{{ $pro->id }}" {{ Session::get('last_option') == $pro->id ? "selected" : ""}}>
                                     {{ $pro->nama }}
                                 </option>
                                 @endforeach

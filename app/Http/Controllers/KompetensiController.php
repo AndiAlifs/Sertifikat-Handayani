@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kompetensi;
 use App\Models\Kursus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class KompetensiController extends Controller
 {
@@ -44,7 +45,7 @@ class KompetensiController extends Controller
         $newKompetensi->nama = $_POST["nama"];
         $newKompetensi->kursus_id = $_POST["kursus_id"];
         $newKompetensi->save();
-
+        Session::flash('last_option',$newKompetensi->kursus_id);
         return redirect()->route('kompetensi.buat');
     }
 
@@ -91,6 +92,7 @@ class KompetensiController extends Controller
     public function destroy($id)
     {
         $deleted = Kompetensi::find($id);
+        Session::flash('last_option',$deleted->kursus_id);
         $deleted->delete();
 
         return redirect()->route('kompetensi.buat');
