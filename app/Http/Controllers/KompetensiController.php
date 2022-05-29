@@ -17,7 +17,7 @@ class KompetensiController extends Controller
     {
         $listKompetensi = Kursus::find($id)->kompetensis;
         return response()->json([
-            $listKompetensi
+            json_encode($listKompetensi)
         ]);
     }
 
@@ -45,7 +45,7 @@ class KompetensiController extends Controller
         $newKompetensi->kursus_id = $_POST["kursus_id"];
         $newKompetensi->save();
 
-        return redirect()->route('sertif.index');
+        return redirect()->route('kompetensi.buat');
     }
 
     /**
@@ -88,8 +88,11 @@ class KompetensiController extends Controller
      * @param  \App\Models\Kompetensi  $kompetensi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kompetensi $kompetensi)
+    public function destroy($id)
     {
-        //
+        $deleted = Kompetensi::find($id);
+        $deleted->delete();
+
+        return redirect()->route('kompetensi.buat');
     }
 }

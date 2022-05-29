@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/kompetensi/buat', [KompetensiController::class, 'create'])->name('kompetensi.buat');
     Route::get('/kompetensi/list/{id}', [KompetensiController::class, 'index'])->name('kompetensi.detail');
+    Route::get('/kompetensi/hapus/{id}', [KompetensiController::class, 'destroy'])->name('kompetensi.hapus');
     Route::post('/kompetensi/simpan', [KompetensiController::class, 'store'])->name('kompetensi.simpan');    
 });
 
