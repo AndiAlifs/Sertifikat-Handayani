@@ -73,7 +73,7 @@
             </div>
         </section>
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer pl-5 pr-5">
       @include('partials.footer')
     </footer>
   </div>
