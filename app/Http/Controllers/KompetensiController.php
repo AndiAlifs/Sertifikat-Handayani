@@ -98,7 +98,7 @@ class KompetensiController extends Controller
         Session::flash('message','Berhasil Menghapus '.ucwords($deleted->nama))."!";
         Session::flash('kind','alert-danger');
         $deleted->delete();
-
+        
         return redirect()->route('kompetensi.buat');
     }
 }
