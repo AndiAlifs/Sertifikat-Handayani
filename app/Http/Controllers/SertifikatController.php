@@ -84,9 +84,9 @@ class SertifikatController extends Controller
      * @param  \App\Models\Sertifikat  $sertifikat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sertifikat $sertifikat)
+    public function edit($id)
     {
-        //
+        $editedSertif = Sertifikat::find($id);
     }
 
     /**
