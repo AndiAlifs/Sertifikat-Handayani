@@ -2,7 +2,14 @@
 <section class="section">
     <!-- <div class="section-header">
     </div> -->
-
+    @if(Session::has('message'))
+    <!-- <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p> -->
+    <div class="alert {{ Session::get('kind') }} alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ Session::get('message') }}
+    </div>
+    @endif
+    
     <div class="section-body">
         <div class="card">
             <div class="card-header">

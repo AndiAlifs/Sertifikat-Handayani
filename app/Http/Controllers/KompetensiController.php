@@ -46,6 +46,8 @@ class KompetensiController extends Controller
         $newKompetensi->kursus_id = $_POST["kursus_id"];
         $newKompetensi->save();
         Session::flash('last_option',$newKompetensi->kursus_id);
+        Session::flash('message','Berhasil menambah '.ucwords($newKompetensi->nama))."!";
+        Session::flash('kind','alert-success');
         return redirect()->route('kompetensi.buat');
     }
 
@@ -93,6 +95,8 @@ class KompetensiController extends Controller
     {
         $deleted = Kompetensi::find($id);
         Session::flash('last_option',$deleted->kursus_id);
+        Session::flash('message','Berhasil Menghapus '.ucwords($deleted->nama))."!";
+        Session::flash('kind','alert-danger');
         $deleted->delete();
 
         return redirect()->route('kompetensi.buat');
