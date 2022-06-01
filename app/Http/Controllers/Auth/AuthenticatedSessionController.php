@@ -30,6 +30,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
+        
         setcookie("name",Auth::user()->name);
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -43,7 +44,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
-
+        setcookie("name","");
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
