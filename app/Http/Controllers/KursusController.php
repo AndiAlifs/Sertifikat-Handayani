@@ -79,11 +79,9 @@ class KursusController extends Controller
     public function update(Request $request)
     {   
         // dd($request);
-        $kursus = Kursus::find($request->id);
-        $kursus->nama = $request->nama;
-        $kursus->save();
+        Kursus::where('id',$request->id)->update(['nama'=>$request->nama]);
         
-        Session::flash('message','Berhasil Mengubah '.ucwords($request->nama))."!";
+        Session::flash('message','Berhasil Mengubah '.ucwords(Kursus::where('id',$request->id)->nama)."!");
         Session::flash('kind','alert-success');
         return redirect()->route('kursus.buat');
     }
