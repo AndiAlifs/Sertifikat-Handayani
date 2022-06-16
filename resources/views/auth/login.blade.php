@@ -17,6 +17,19 @@
             <div class="card card-primary">
                 <div class="card-header"><h4>Login {{ env('APP_NAME') }}</h4></div>
 
+                @csrf @if(count($errors) > 0)
+                        <div class="alert alert-danger alert-dismissible">
+                            <a
+                                href="#"
+                                class="close"
+                                data-dismiss="alert"
+                                aria-label="close"
+                                >&times;</a
+                            >
+                            {{ $errors }}
+                        </div>
+                        @endif
+
                 <div class="card-body">
                     <form
                         method="POST"
